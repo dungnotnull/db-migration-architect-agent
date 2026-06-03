@@ -88,14 +88,40 @@ export class MySQLParser {
     if (!statement || !statement.table || !statement.table[0] || !statement.table[0].table) return;
 
     const tableName = statement.table[0].table;
-    
     const tableDef: TableDefinition = {
       name: tableName,
       columns: [],
       indexes: [],
       foreignKeys: [],
-      constraints: []
+      constraints: [],
+      engine: undefined,
+      charset: undefined,
+      autoIncrement: undefined
     };
+
+    // Process table options like ENGINE, CHARSET, etc.
+    if (statement.options && Array.isArray(statement.options)) {
+      for (const option of statement.options) {
+        if (option.type === 'table_option') {
+          const key = option.option.toUpperCase();
+          const value = option.value;
+          
+          switch (key) {
+            case 'ENGINE':
+              tableDef.engine = value;
+              break;
+            case 'CHARSET':
+            case 'CHARACTER SET':
+              tableDef.charset = value;
+              break;
+            case 'AUTO_INCREMENT':
+              tableDef.autoIncrement = value;
+              break;
+            // Add other MySQL-specific options as needed
+          }
+        }
+      }
+    }
 
     // Process column definitions
     if (statement.create_definitions && Array.isArray(statement.create_definitions)) {
@@ -134,17 +160,17 @@ export class MySQLParser {
     const isTimestamp = definition.definition && 
                        (definition.definition.dataType === 'TIMESTAMP' || 
                         definition.definition.dataType === 'DATETIME');
-    
+
     // Check if it has a CURRENT_TIMESTAMP default
     const hasCurrentTimestampDefault = definition.default_val && 
-                                      definition.default_val.type === 'default' &&
+                                      definition.default_val.type === 'default' && 
                                       definition.default_val.value && 
-                                      definition.default_val.value.type === 'function' &&
+                                      definition.default_val.value.type === 'function' && 
                                       definition.default_val.value.name && 
                                       definition.default_val.value.name.name && 
                                       definition.default_val.value.name.name[0] && 
                                       definition.default_val.value.name.name[0].value === 'CURRENT_TIMESTAMP';
-    
+
     return isTimestamp && hasCurrentTimestampDefault;
   }
 
@@ -204,7 +230,7 @@ export class MySQLParser {
       switch (baseType) {
         case 'DECIMAL':
         case 'NUMERIC':
-          return baseType; // Return just "DECIMAL" or "NUMERIC" without precision/scale
+          return baseType; // Return just \"DECIMAL\" or \"NUMERIC\" without precision/scale
         default:
           // For other types, include precision/scale if present
           if (dataType.length !== null && dataType.length !== undefined) {

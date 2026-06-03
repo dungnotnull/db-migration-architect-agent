@@ -1,0 +1,32 @@
+/* tslint:disable */
+/* eslint-disable */
+export const memory: WebAssembly.Memory;
+export const __wbg_schemaengine_free: (a: number, b: number) => void;
+export const schemaengine_applyMigrations: (a: number, b: any) => any;
+export const schemaengine_createMigration: (a: number, b: any) => any;
+export const schemaengine_dbExecute: (a: number, b: any) => any;
+export const schemaengine_debugPanic: (a: number) => void;
+export const schemaengine_devDiagnostic: (a: number, b: any) => any;
+export const schemaengine_diagnoseMigrationHistory: (a: number, b: any) => any;
+export const schemaengine_diff: (a: number, b: any) => any;
+export const schemaengine_ensureConnectionValidity: (a: number, b: any) => any;
+export const schemaengine_evaluateDataLoss: (a: number, b: any) => any;
+export const schemaengine_introspect: (a: number, b: any) => any;
+export const schemaengine_introspectSql: (a: number, b: any) => any;
+export const schemaengine_markMigrationApplied: (a: number, b: any) => any;
+export const schemaengine_markMigrationRolledBack: (a: number, b: any) => any;
+export const schemaengine_new: (a: any, b: any, c: any) => any;
+export const schemaengine_reset: (a: number, b: any) => any;
+export const schemaengine_schemaPush: (a: number, b: any) => any;
+export const schemaengine_version: (a: number, b: number) => any;
+export const version: () => [number, number];
+export const wasm_bindgen__convert__closures_____invoke__h23ed6957d162660b: (a: number, b: number, c: any) => void;
+export const wasm_bindgen__closure__destroy__h21679dc207cdb9a0: (a: number, b: number) => void;
+export const wasm_bindgen__convert__closures_____invoke__h022dc9e086e5ade9: (a: number, b: number, c: any, d: any) => void;
+export const __wbindgen_malloc: (a: number, b: number) => number;
+export const __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+export const __wbindgen_exn_store: (a: number) => void;
+export const __externref_table_alloc: () => number;
+export const __wbindgen_externrefs: WebAssembly.Table;
+export const __wbindgen_free: (a: number, b: number, c: number) => void;
+export const __wbindgen_start: () => void;

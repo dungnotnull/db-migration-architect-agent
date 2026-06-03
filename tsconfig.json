@@ -12,7 +12,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": false, // We need to emit for testing
+    "types": ["jest", "node"]
   },
   "include": [
     "**/*.ts",

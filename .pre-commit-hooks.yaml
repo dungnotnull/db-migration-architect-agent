@@ -1,0 +1,10 @@
+- id: db-migrate-agent
+  name: DB Migration Architect Agent
+  description: Analyzes new or modified database schema files for migration risks
+  entry: db-migrate-agent analyze -s
+  language: node
+  types: [file]
+  files: \.(prisma|sql|json)$
+  args: ['-c', 'Pre-commit schema validation', '-e', 'postgres', '-o', '.']
+  require_serial: true
+  pass_filenames: true

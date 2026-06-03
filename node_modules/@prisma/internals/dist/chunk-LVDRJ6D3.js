@@ -1,0 +1,122 @@
+"use strict";
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var chunk_LVDRJ6D3_exports = {};
+__export(chunk_LVDRJ6D3_exports, {
+  require_package: () => require_package
+});
+module.exports = __toCommonJS(chunk_LVDRJ6D3_exports);
+var import_chunk_4VNS5WPM = require("./chunk-4VNS5WPM.js");
+var require_package = (0, import_chunk_4VNS5WPM.__commonJS)({
+  "package.json"(exports, module2) {
+    module2.exports = {
+      name: "@prisma/internals",
+      version: "7.8.0",
+      description: "This package is intended for Prisma's internal use",
+      main: "dist/index.js",
+      types: "dist/index.d.ts",
+      repository: {
+        type: "git",
+        url: "https://github.com/prisma/prisma.git",
+        directory: "packages/internals"
+      },
+      homepage: "https://www.prisma.io",
+      author: "Tim Suchanek <suchanek@prisma.io>",
+      bugs: "https://github.com/prisma/prisma/issues",
+      license: "Apache-2.0",
+      scripts: {
+        dev: "DEV=true tsx helpers/build.ts",
+        build: "tsx helpers/build.ts",
+        test: "dotenv -e ../../.db.env -- vitest run --silent",
+        prepublishOnly: "pnpm run build"
+      },
+      files: [
+        "README.md",
+        "dist",
+        "!dist/get-generators/engines/*",
+        "scripts"
+      ],
+      devDependencies: {
+        "@babel/helper-validator-identifier": "7.25.9",
+        "@opentelemetry/api": "1.9.0",
+        "@types/babel__helper-validator-identifier": "7.15.2",
+        "@types/node": "~20.19.24",
+        "@types/resolve": "1.20.6",
+        "checkpoint-client": "1.1.33",
+        "cli-truncate": "4.0.0",
+        empathic: "2.0.0",
+        "escape-string-regexp": "5.0.0",
+        execa: "8.0.1",
+        "find-up": "7.0.0",
+        "fp-ts": "2.16.9",
+        "fs-extra": "11.3.0",
+        "global-directory": "4.0.0",
+        globby: "11.1.0",
+        "identifier-regex": "1.0.0",
+        "indent-string": "4.0.0",
+        "is-windows": "1.0.2",
+        "is-wsl": "3.1.0",
+        kleur: "4.1.5",
+        "mock-stdin": "1.0.0",
+        "new-github-issue-url": "0.2.1",
+        "node-fetch": "3.3.2",
+        "npm-packlist": "5.1.3",
+        open: "7.4.2",
+        "p-map": "4.0.0",
+        resolve: "1.22.10",
+        "string-width": "7.2.0",
+        "strip-indent": "4.0.0",
+        "temp-dir": "2.0.0",
+        tempy: "1.0.1",
+        "terminal-link": "4.0.0",
+        tmp: "0.2.3",
+        "ts-pattern": "5.6.2",
+        "ts-toolbelt": "9.6.0",
+        typescript: "5.4.5",
+        yarn: "1.22.22"
+      },
+      dependencies: {
+        "@prisma/config": "workspace:*",
+        "@prisma/debug": "workspace:*",
+        "@prisma/dmmf": "workspace:*",
+        "@prisma/driver-adapter-utils": "workspace:*",
+        "@prisma/engines": "workspace:*",
+        "@prisma/fetch-engine": "workspace:*",
+        "@prisma/generator": "workspace:*",
+        "@prisma/generator-helper": "workspace:*",
+        "@prisma/get-dmmf": "workspace:*",
+        "@prisma/get-platform": "workspace:*",
+        "@prisma/prisma-schema-wasm": "7.8.0-6.3c6e192761c0362d496ed980de936e2f3cebcd3a",
+        "@prisma/schema-engine-wasm": "7.8.0-6.3c6e192761c0362d496ed980de936e2f3cebcd3a",
+        "@prisma/schema-files-loader": "workspace:*",
+        "@streamparser/json": "0.0.22",
+        arg: "5.0.2",
+        prompts: "2.4.2"
+      },
+      peerDependencies: {
+        typescript: ">=5.4.0"
+      },
+      peerDependenciesMeta: {
+        typescript: {
+          optional: true
+        }
+      },
+      sideEffects: false
+    };
+  }
+});

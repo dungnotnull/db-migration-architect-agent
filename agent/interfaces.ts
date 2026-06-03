@@ -26,6 +26,9 @@ export interface TableDefinition {
   indexes: IndexDefinition[];
   foreignKeys: ForeignKeyDefinition[];
   constraints: ConstraintDefinition[];
+  engine?: string;
+  charset?: string;
+  autoIncrement?: string | number;
 }
 
 /**
@@ -87,6 +90,7 @@ export interface EnumDefinition {
 export interface ViewDefinition {
   name: string;
   definition: string; // SQL query that defines the view
+  sql?: string; // Alternative property for SQL query
 }
 
 /**
@@ -100,7 +104,7 @@ export interface MigrationRequest {
   changeDescription: string;
   
   // Target database engine
-  targetEngine: 'postgres' | 'mysql';
+  targetEngine: 'postgres' | 'mysql' | 'mongodb';
   
   // Optional: specific queries to analyze for performance impact
   queriesToAnalyze?: string[];

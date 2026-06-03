@@ -1,9 +1,18 @@
 {
-  "name": "@db-migrate-architect/agent",
+  "name": "@db-migrate-architect/cli",
   "version": "0.1.0",
-  "description": "DB Migration Architect Agent - Autonomous AI agent for safe database schema migrations",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "Autonomous AI agent for safe, zero-downtime database schema migrations",
+  "main": "dist/agent/interfaces.js",
+  "types": "dist/agent/interfaces.d.ts",
+  "bin": {
+    "db-migrate-agent": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --ext .ts,.tsx",
@@ -18,20 +27,40 @@
     "database",
     "migration",
     "schema",
+    "postgresql",
+    "mysql",
+    "mongodb",
     "devops",
     "ai",
-    "agent"
+    "agent",
+    "cli"
   ],
   "author": "DB Migration Architect Agent Team",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/db-migrate-architect/agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/db-migrate-architect/agent/issues"
+  },
+  "homepage": "https://github.com/db-migrate-architect/agent#readme",
+  "dependencies": {
+    "commander": "^11.0.0"
+  },
   "devDependencies": {
+    "@types/commander": "^2.12.0",
+    "@prisma/internals": "^7.8.0",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.0",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
     "eslint": "^8.36.0",
     "jest": "^29.5.0",
+    "node-sql-parser": "^5.4.0",
+    "pgsql-ast-parser": "^12.0.2",
     "prettier": "^2.8.4",
-    "typescript": "^5.0.0"
+    "ts-jest": "^29.4.11",
+    "typescript": "^5.9.3"
   }
 }
